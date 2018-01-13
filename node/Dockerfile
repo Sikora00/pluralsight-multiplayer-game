@@ -8,9 +8,14 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY ./src ./
 
+RUN apt-get update
+
 RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
+RUN npm install -g nodemon
+
+RUN apt-get install nano
 
 EXPOSE 8080
 CMD [ "npm", "start" ]
